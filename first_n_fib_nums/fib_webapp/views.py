@@ -32,8 +32,10 @@ def fib_nums(request):
         second_row = FibonacciTable.objects.order_by('-fib_no').first()
         first_row = FibonacciTable.objects.exclude(fib_no=second_row.fib_no).order_by('-fib_no').first()
         fib = second_row.fib_no
-        second = second_row.value
-        first = first_row.value
+        # second = second_row.value
+        # first = first_row.value
+        second = int(second_row.value)
+        first = int(first_row.value)
 
         while fib<num: 
             fib += 1

@@ -4,7 +4,7 @@ from django.db import models
 
 class FibonacciTable(models.Model):
 
-    fib_no = models.BigIntegerField();
+    fib_no = models.BigIntegerField(db_index=True);
     value = models.BigIntegerField();
 
     @classmethod
@@ -17,4 +17,4 @@ class FibonacciTable(models.Model):
         FibonacciTable.objects.bulk_create(rows)
 
     def __str__(self):
-        return f'{fib_no} fibonaccti number is {value}.'
+        return f'{self.fib_no} fibonacci number is {self.value}.'

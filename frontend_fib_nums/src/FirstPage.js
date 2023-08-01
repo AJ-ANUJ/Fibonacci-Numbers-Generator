@@ -7,7 +7,7 @@ const FirstPage = () => {
     const [input, setInput] = useState(defaultText);
     const [notValidInput, setNotValidInput] = useState(false);
     const navigation = useNavigate();
-    const [isfetching, setIsFetching] = useState('false');
+    // const [isfetching, setIsFetching] = useState('false');
 
     const saveInput = (input) => {
         setInput(input.target.value);
@@ -30,20 +30,22 @@ const FirstPage = () => {
         const num = parseInt(input);
         if(!isNaN(num) && num > 0) {
             //render the second page
-            setIsFetching(true);
+            // setIsFetching(true);
             try {
                 const response = await axios.get('http://127.0.0.1:8000/fib_webapp/fib-num/', {
                     params: {
                     num: input
                     }
                 })
-                const data = await JSON.parse(response.data);
-                setIsFetching(false);
+                console.log(response)
+                console.log(response.data);
+                const data = response.data;
+                // setIsFetching(false);
                 // console.log(input);
                 navigation('/second-page', {state: { n_value: input, numbers : data }});
             } catch(error) {
                 console.error('Error generating fibonacci numbers: ', error);
-                setIsFetching(false);
+                // setIsFetching(false);
             }
         }
         else {

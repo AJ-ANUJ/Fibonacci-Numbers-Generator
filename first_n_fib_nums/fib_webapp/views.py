@@ -10,8 +10,7 @@ from django.db.models import F
 @require_http_methods(['GET'])
 def fib_nums(request):
     num = int(request.GET.get('num'))
-    # print(type(num))
-    # return HttpResponse("hello world")
+    
     #checking if there is an entry in the db already for num
     db = FibonacciTable.objects.filter(fib_no=num)
     # print(db)
@@ -23,11 +22,21 @@ def fib_nums(request):
             for row in all_rows
         ]
 
-        json_data = json.dumps(data)
+        # json_data = json.dumps(data)
 
-        return JsonResponse(json_data, safe=False)
+        return JsonResponse(data, safe=False)
     
     else:
+        '''
+            first check if db table is empty
+            if yes enter the first 2 entries
+        '''
+        if FibonacciTable.objects.all().count()==0:
+            first_entry = FibonacciTable(fib_no=1, value='0')
+            first_entry.save()
+            second_entry = FibonacciTable(fib_no=2, value='1')
+            second_entry.save()
+
         #calculate the remaining fibnums
         second_row = FibonacciTable.objects.order_by('-fib_no').first()
         first_row = FibonacciTable.objects.exclude(fib_no=second_row.fib_no).order_by('-fib_no').first()
@@ -40,7 +49,7 @@ def fib_nums(request):
         while fib<num: 
             fib += 1
             temp = second+first
-            new_fib_row = FibonacciTable(fib_no=fib, value=temp)
+            new_fib_row = FibonacciTable(fib_no=fib, value=str(temp))
             new_fib_row.save()
             first, second = second, temp
         
@@ -54,4 +63,4 @@ def fib_nums(request):
 
         # json_data = json.dumps(data)
 
-        return JsonResponse(json_data, safe=False)
+        return JsonResponse(data, safe=False)

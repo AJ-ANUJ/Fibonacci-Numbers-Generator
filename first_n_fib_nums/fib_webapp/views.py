@@ -20,7 +20,7 @@ def fib_nums(request):
         all_rows = FibonacciTable.objects.filter(fib_no__lte=num)
         data = [
             {'fib_no': row.fib_no, 'value': row.value}
-            for row in db
+            for row in all_rows
         ]
 
         json_data = json.dumps(data)
@@ -50,6 +50,6 @@ def fib_nums(request):
             for row in db
         ]
 
-        json_data = json.dumps(data)
+        # json_data = json.dumps(data)
 
         return JsonResponse(json_data, safe=False)

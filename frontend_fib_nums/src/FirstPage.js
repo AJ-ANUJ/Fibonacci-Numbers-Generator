@@ -28,17 +28,22 @@ const FirstPage = () => {
 
     const handleOnClick = async () => {
         const num = parseInt(input);
-        if(!isNaN(num) && num > 0) {
+        if(!(input.includes(".")) && (!isNaN(num) && num > 0)) {
             //render the second page
             // setIsFetching(true);
             try {
                 const response = await axios.get('http://127.0.0.1:8000/fib_webapp/fib-num/', {
                     params: {
-                    num: input
+                    num: num
                     }
                 })
-                console.log(response)
-                console.log(response.data);
+                // const response = await axios.get('http://192.168.68.55:8000/fib_webapp/fib-num/', {
+                //     params: {
+                //     num: num
+                //     }
+                // })
+                // console.log(response)
+                // console.log(response.data);
                 const data = response.data;
                 // setIsFetching(false);
                 // console.log(input);
@@ -50,7 +55,7 @@ const FirstPage = () => {
         }
         else {
             setInput(defaultText);
-            console.log('not valid input');
+            // console.log('not valid input');
             setNotValidInput(true);
         }
     }

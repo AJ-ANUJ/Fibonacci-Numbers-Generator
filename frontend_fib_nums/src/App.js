@@ -1,7 +1,6 @@
-import logo from './logo.svg';
 import './App.css';
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Display from './display.js';
 import FirstPage from './FirstPage.js';
 

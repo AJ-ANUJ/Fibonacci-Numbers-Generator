@@ -1,16 +1,20 @@
 # Documentation
 
-This web app for generating the first n Fibonacci numbers has been build by using Django framework for backend and relational database and React.js for frontend development.
+This web app for generating the first n Fibonacci numbers has been build by using Django framework for backend, relational database and React.js for frontend development.
 
-This design decision is taken to maintain separation of concerns.
+This design decision is taken to maintain **separation of concerns**.
 
 >**Note**: 0 is being considered as the first fibonacci number.
 
-The folder structure is as follows:
+The directory structure is as follows:
 
 .
 ├── README.md
+
+├── cz-biohub-env
+
 ├── first_n_fib_nums
+
 └── frontend_fib_nums
 
 first_n_fib_nums directory contains the codebase for the backend of the web app.
@@ -37,6 +41,8 @@ The backend server for this web app has the following:
 
 The frontend is a modern React user interface with two pages, one with a simple form to get a input from user and the second to display the respective fibonacci numbers.
 
+The API call is made when the user clicks on the submit button on the first page.
+
 ## Implementation Details
 
 1. On loading the web app in the browser, the user will land on the first page where they can enter a valid integer(positive) n to generate the first n fibonacci numbers.
@@ -49,19 +55,17 @@ The frontend is a modern React user interface with two pages, one with a simple 
 
 5. If they don't exist, the remaining fibonacci numbers are generated and saved in the database for future use and then the result is sent back.
 
-6. In the front-end after getting the api response back, the data(fibonacci numbers) are transformed into needed form and displayed on a second page.
+6. In the front-end after getting the api response back, the data(fibonacci numbers) is transformed into needed form and displayed on a second page.
 
 7. If there is any error during an api call, the error is caught and logged, which can be seen in the developer tools of the browser.
 
 ## Requirments
 
-1. Please install Django in your machine: **pip install django**
+1. Please install Django in your machine, if not installed: **pip install django**
 
-2. Please install Django CORS Headers package with the cmd: **pip install django-cors-headers**
+2. Please install Django CORS Headers package, if not installed: **pip install django-cors-headers**
 
-3. Install node: **brew install node**
-
-4. Install React-router-dom: **npm install react-router-dom**
+3. Please install node, if not installed: **brew install node**
 
 ## Steps to run the project
 
@@ -71,7 +75,7 @@ The frontend is a modern React user interface with two pages, one with a simple 
 
 ### Steps to start the frontend UI
 
-1. go to the frontend_fib_nums and run the following cmd: **npm start**
+1. go to the frontend_fib_nums directory and run the following cmd: **npm start**
 
 The user interface will open up in the browser.
 

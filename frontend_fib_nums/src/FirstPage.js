@@ -28,7 +28,7 @@ const FirstPage = () => {
 
     const handleOnClick = async () => {
         const num = parseInt(input);
-        if(!(input.includes(".")) && (!isNaN(num) && num > 0)) {
+        if((/^\d+$/.test(input)) && (!isNaN(num) && num > 0)) {
             //render the second page
             // setIsFetching(true);
             try {

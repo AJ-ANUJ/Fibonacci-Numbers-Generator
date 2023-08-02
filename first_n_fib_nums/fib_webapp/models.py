@@ -4,7 +4,7 @@ from django.db import models
 
 class FibonacciTable(models.Model):
 
-    fib_no = models.BigIntegerField(db_index=True);
+    fib_no = models.BigIntegerField(primary_key=True, db_index=True);
     # value = models.BigIntegerField();
     value = models.CharField(max_length=100);
 

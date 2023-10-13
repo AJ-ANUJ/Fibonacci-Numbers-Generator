@@ -1,3 +1,6 @@
+https://github.com/AJ-ANUJ/Fibonacci-Numbers-Generator/assets/26610301/1be1db79-1aea-42a2-aff6-0421f02181d5
+
+
 # Documentation
 
 This web app for generating the first n Fibonacci numbers has been build by using Django framework for backend, relational database and React.js for frontend development.
